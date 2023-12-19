@@ -59,7 +59,6 @@ namespace SJ.ImageGallery {
         public int Index { get; private set; } = -1;
         /// <inheritdoc />
         public bool IsDebugMode {
-            // set => indexText.gameObject.SetActive(value);
             set {
                 indexText.gameObject.SetActive(value);
                 progressText.gameObject.SetActive(value);
@@ -137,7 +136,6 @@ namespace SJ.ImageGallery {
         #region Unity Methods
 
         private void Awake() {
-            // indexText.gameObject.SetActive(isShowIndexText);
             StatePropertyList = GetComponents<IStateProperty>();
             if (image == null) {
                 image = GetComponent<TextureApplier>();
