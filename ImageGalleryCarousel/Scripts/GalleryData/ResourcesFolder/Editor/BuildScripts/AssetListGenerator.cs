@@ -18,11 +18,9 @@ namespace SJ.ImageGallery {
     ///     Generates an asset list from a specified folder path and saves it as a JSON file.
     /// </summary>
     public class AssetListGenerator : MonoBehaviour {
-        #region Public Methods
-
         [MenuItem("Assets/Generate Asset List")]
         public static void GenerateAssetList() {
-            var folderPath = "Assets/ImageGallery/Resources"; // Path to your folder
+            var folderPath = "Assets/ImageGalleryCarousel/Resources/"; // Path to your folder
             var guids = AssetDatabase.FindAssets("t:Texture2D", new[] { folderPath });
             Debug.Log("Assets found: " + guids.Length); // Debug log
 
@@ -40,11 +38,9 @@ namespace SJ.ImageGallery {
             };
 
             var json = JsonUtility.ToJson(assetList, false);
-            var outputPath = "Assets/ImageGallery/Resources/assetList.json"; // Path to save the JSON file
+            var outputPath = folderPath + "assetList.json"; // Path to save the JSON file
             File.WriteAllText(outputPath, json);
             AssetDatabase.Refresh();
         }
-
-        #endregion
     }
 }
