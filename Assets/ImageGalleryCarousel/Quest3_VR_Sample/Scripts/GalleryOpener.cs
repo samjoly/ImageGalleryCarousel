@@ -35,8 +35,17 @@ namespace SJ.ImageGallery {
         [FormerlySerializedAs("OnOpenComplete")]
         public UnityEvent onOpenComplete;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the animation is allowed to override any ongoing animation. Make App more reactive.
+        /// </summary>
+        public bool isOverriting = true;
+
         private bool _isAnimating;
         private bool _isOpen;
+
+        private Tween _tweenMove;
+
+        private Tween _tweenScale;
 
         /// <summary>
         /// Toggles the active state of the object.
@@ -68,9 +77,12 @@ namespace SJ.ImageGallery {
         }
 
         private void Animate(bool opening) {
-            if (_isAnimating) {
+            if (_isAnimating && !isOverriting) {
                 return;
             }
+
+            _tweenMove?.Kill();
+            _tweenScale?.Kill();
 
             _isAnimating = true;
             _isOpen = opening;
@@ -82,8 +94,8 @@ namespace SJ.ImageGallery {
             var completeEvent = opening ? onOpenComplete : onCloseComplete;
 
             startEvent?.Invoke();
-            gallery.transform.DOLocalMove(targetPosition, duration).SetEase(ease);
-            gallery.transform.DOScale(targetScale, duration)
+            _tweenMove = gallery.transform.DOLocalMove(targetPosition, duration).SetEase(ease);
+            _tweenScale = gallery.transform.DOScale(targetScale, duration)
                 .SetEase(ease)
                 .OnComplete(() => {
                     completeEvent?.Invoke();
