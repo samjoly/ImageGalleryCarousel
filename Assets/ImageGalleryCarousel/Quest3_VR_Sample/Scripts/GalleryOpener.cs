@@ -1,11 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace SJ.ImageGallery {
     /// <summary>
-    /// Provides functionality to animate the opening and closing of a gallery. This class uses scaling animations to transition the gallery between open and closed states.
+    /// Provides functionality to animate the opening and closing of a gallery.
     /// </summary>
     /// <Features>
     ///     <list type="bullet">
@@ -26,14 +25,10 @@ namespace SJ.ImageGallery {
         public float duration = 0.5f;
         public Ease ease = Ease.InQuart;
 
-        [FormerlySerializedAs("OnOpenStart")]
         public UnityEvent onOpenStart;
-        [FormerlySerializedAs("OnCloseComplete")]
-        public UnityEvent onCloseComplete;
-        [FormerlySerializedAs("OnCloseStart")]
-        public UnityEvent onCloseStart;
-        [FormerlySerializedAs("OnOpenComplete")]
         public UnityEvent onOpenComplete;
+        public UnityEvent onCloseComplete;
+        public UnityEvent onCloseStart;
 
         /// <summary>
         /// Gets or sets a value indicating whether the animation is allowed to override any ongoing animation. Make App more reactive.
@@ -46,6 +41,10 @@ namespace SJ.ImageGallery {
         private Tween _tweenMove;
 
         private Tween _tweenScale;
+
+        private void Start() {
+            onCloseStart.Invoke();
+        }
 
         /// <summary>
         /// Toggles the active state of the object.

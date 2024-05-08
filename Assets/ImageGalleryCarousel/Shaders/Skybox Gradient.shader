@@ -7,6 +7,7 @@
 // _Angle: Angle in radians to rotate the gradient around the vertical axis
 // _Screenspace: Toggle to switch calculation to screen space instead of world space
 
+
 Shader "Skybox Gradient"
 {
     Properties

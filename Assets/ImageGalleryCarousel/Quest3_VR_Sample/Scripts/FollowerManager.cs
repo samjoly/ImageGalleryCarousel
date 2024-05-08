@@ -74,6 +74,11 @@ namespace SJ.ImageGallery {
             }
         }
 
+        /// <summary>
+        /// Adds a follower object to the FollowerManager.
+        /// </summary>
+        /// <param name="follower">The GameObject to be added as a follower.</param>
+        /// <returns>Returns true if the follower was successfully added, false otherwise.</returns>
         public bool AddFollower(GameObject follower) {
             if (follower != null && !followers.Contains(follower)) {
                 followers.Add(follower);
@@ -91,6 +96,11 @@ namespace SJ.ImageGallery {
             return false;
         }
 
+        /// <summary>
+        /// Removes a follower object from the FollowerManager.
+        /// </summary>
+        /// <param name="follower">The GameObject to be removed as a follower.</param>
+        /// <returns>Returns true if the follower was successfully removed, false otherwise.</returns>
         public bool RemoveFollower(GameObject follower) {
             var index = followers.IndexOf(follower);
             if (index != -1) {
@@ -104,6 +114,9 @@ namespace SJ.ImageGallery {
             return false;
         }
 
+        /// <summary>
+        /// Removes all follower objects from the FollowerManager.
+        /// </summary>
         public void RemoveAllFollowers() {
             followers.Clear();
             _initialRelativePositions.Clear();

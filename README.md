@@ -5,11 +5,11 @@ This image gallery carousel is designed for Unity and allows for the loading and
 ## Features
 ### Sample Scenes
 
-- **Asymmetry_Layout_ServerScr_VR**: Features a standard carousel layout utilizing Unity's Resource folder as source, within Quest3.
+- **Asymmetry_Layout_ServerScr_VR**: This Quest3 sample features a standard carousel layout that utilizes Unity's Resource folder as the media source. The carousel can be opened or closed using gestures, and rotated in the same way. The scene includes a UI feedback mechanism for gestures.
 
 ![image](https://github.com/samjoly/ImageGalleryCarousel/blob/master/Documents/Carousel_Layout_ResourcesScr_VR.gif?raw=true)
 
-- **Carousel_Layout_ResourcesScr**: Features a standard carousel layout utilizing Unity's Resource folder as source.
+- **Carousel_Layout_ResourcesScr**: Features a standard carousel layout utilizing Unity's Resource folder as media source.
 
 ![image](https://github.com/samjoly/ImageGalleryCarousel/blob/master/Documents/Carousel_Layout_ResourcesScr.jpg?raw=true)
 
